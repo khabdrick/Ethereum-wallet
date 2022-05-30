@@ -70,8 +70,6 @@ contract EtherWallet {
     // If you are using version eight (v0.8) of chainlink aggregator interface,
 	// you will need to change the code below to
 	// payable(msg.sender).transfer(address(this).balance);
-        payable(msg.sender).transfer(address(this).balance);
-
         payable(msg.sender).transfer(_amount);
 
     }
