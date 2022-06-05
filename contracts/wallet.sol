@@ -1,9 +1,5 @@
 // SPDX-License-Identifier: MIT
-
-
 pragma solidity 0.8.0;
-
-// Get the latest ETH/USD price from chainlink price feed
 
 contract EtherWallet {
     
@@ -12,15 +8,9 @@ contract EtherWallet {
    
     // array of addresses who deposited
     address[] public senders;
-    //address of the owner (who deployed the contract)
-    address public owner;
-    
-    // the first person to deploy the contract is
-    // the owner
-    // constructor() public {
-    //     owner = msg.sender;
-    // }
-    
+
+    address public owner; // the first person to deploy the contract is the owner
+
     function received() public payable {
         //add to mapping and senders array
         addressToAmountReceived[msg.sender] += msg.value;
@@ -33,12 +23,11 @@ contract EtherWallet {
     	//is the message sender owner of the contract?
         require(msg.sender == owner);
         
-        _;
+        _; // withdraw() function will be inserted here
     }
     
     // onlyOwner modifer will first check the condition inside it 
-    // and 
-    // if true, withdraw function will be executed 
+    // and if true, withdraw function will be executed 
     function withdraw(uint _amount) public payable onlyOwner {
     
     // If you are using version eight (v0.8) of chainlink aggregator interface,
