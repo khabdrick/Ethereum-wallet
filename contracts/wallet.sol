@@ -29,10 +29,6 @@ contract EtherWallet {
     // onlyOwner modifer will first check the condition inside it 
     // and if true, withdraw function will be executed 
     function withdraw(uint _amount) public payable onlyOwner {
-    
-    // If you are using version eight (v0.8) of chainlink aggregator interface,
-	// you will need to change the code below to
-	// payable(msg.sender).transfer(address(this).balance);
         payable(msg.sender).transfer(_amount);
 
     }
