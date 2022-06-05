@@ -1,7 +1,6 @@
 // SPDX-License-Identifier: MIT
 
-// Smart contract that lets anyone deposit ETH into the contract
-// Only the owner of the contract can withdraw the ETH
+
 pragma solidity 0.8.0;
 
 // Get the latest ETH/USD price from chainlink price feed
