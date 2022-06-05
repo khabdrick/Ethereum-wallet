@@ -10,7 +10,7 @@ import "@chainlink/contracts/src/v0.6/interfaces/AggregatorV3Interface.sol";
 contract EtherWallet {
     
     //mapping to store addresses and amount of ETH deposited
-    mapping(address => uint256) public addressToAmountFunded;
+    mapping(address => uint256) public addressToAmountReceived;
    
     // array of addresses who deposited
     address[] public senders;
@@ -23,13 +23,9 @@ contract EtherWallet {
     //     owner = msg.sender;
     // }
     
-    function fund() public payable {
-    	// 18 digit number to be compared with donated amount 
-        uint256 minimumUSD = 50 * 10 ** 18;
-        //is the donated amount less than 50USD?
-        require(getConversionRate(msg.value) >= minimumUSD, "You need to spend more ETH!");
-        //if not, add to mapping and senders array
-        addressToAmountFunded[msg.sender] += msg.value;
+    function received() public payable {
+        //add to mapping and senders array
+        addressToAmountReceived[msg.sender] += msg.value;
         senders.push(msg.sender);
     }
     
