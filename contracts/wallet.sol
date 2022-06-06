@@ -18,7 +18,6 @@ contract EtherWallet {
     }
     
     
-    //modifier: https://medium.com/coinmonks/solidity-tutorial-all-about-modifiers-a86cf81c14cb
     modifier onlyOwner {
     	//is the message sender owner of the contract?
         require(msg.sender == owner, "Only the owner can call this method!");
