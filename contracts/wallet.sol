@@ -27,7 +27,7 @@ contract EtherWallet {
     
     // onlyOwner modifer will first check the condition inside it 
     // and if true, withdraw function will be executed 
-    function withdraw(uint _amount) public payable onlyOwner {
+    function withdraw(uint _amount) external onlyOwner {
         payable(msg.sender).transfer(_amount);
 
     }
